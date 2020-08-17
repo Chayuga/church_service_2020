@@ -1,3 +1,4 @@
+import 'package:churchapp/screens/booked_successful.dart';
 import 'package:churchapp/screens/navigation_bar.dart';
 
 import 'registration/login_screen.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         'SignUp': (context) => SignUpScreen(),
         'Home': (context) => SurveyQuiz(),
         'Survey': (context) => SurveyQuiz(),
-        'MyNavBar': (context) => MyNavBar(), //add this to routes
+        'MyNavBar': (context) => MyNavBar(),
+        'BookedSuccess': (context) => BookedSuccess(),//add this to routes
       },
     );
   }

@@ -25,27 +25,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        leading: Padding(
-//          padding: const EdgeInsets.fromLTRB(8, 1, 1, 1),
-//          child: Image.asset(
-//            'assets/images/dcu-logo.png',
-//            fit: BoxFit.contain,
-//            height: 25,
-//          ),
-//        ),
-//        actions: <Widget>[
-//          IconButton(
-//            icon: Icon(
-//              Icons.exit_to_app,
-//              color: Colors.white,
-//            ),
-//            onPressed: () => logOut(),
-//          ),
-//        ],
-//        title: Center(child: Text('Reopening Message')),
-//        backgroundColor: primaryColor,
-//      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -75,22 +54,67 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "MESSAGE TO ALL",
+                        "Our Strategic statements at DCU",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.openSans(
                             color: Colors.black87,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          '''I am delighted to have you visit our church App. It is my privilege to serve as Pastor of Deliverance Church Utawala, Kenya.\n\nMy heartfelt prayer is for people to know the Lord Jesus Christ as their personal Lord and Savior. We also want you to become actively involved in a Bible believing, Bible preaching, Fundamental church that cares for you.\n\nWe make no apology for the Word of God. We preach the Bible. We preach sound doctrine from that Word and devotion to the Lord Jesus Christ. (Romans 1:16). Our motto is: \nTouching Heaven, Changing Earth. \nThe truth will never be watered down. Sin will be called sin. Right will be called right. But the truth will always be preached in love.\n\nCheck out the various pages on our website. If you are not certain that if you died today that heaven is your home, and then email us. We will get back to you quickly and share with you GOD’S simple plan of salvation.''',
+                          "Vision :",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                              color: Colors.deepPurple,fontSize: 18,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          '''The church of choice transforming and empowering mankind in Africa and beyond.''',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.openSans(
                               color: Colors.black87,
-                              fontWeight: FontWeight.w300)),
+                              fontWeight: FontWeight.w400)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          "Mission :",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                              color: Colors.deepPurple,fontSize: 18,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          '''To equip mankind for the mission of God.''',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w400)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          "Core Values :",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                              color: Colors.deepPurple,fontSize: 18,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          '''1. Wisdom\n\n2. Holiness\n\n3. Excellence\n\n4. Love\n\n5. Fellowship''',
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.openSans(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w400)),
                     ),
                   ],
                 ),
@@ -112,7 +136,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                        '''1st Service   [7:30am - 9:30am]\n\n2nd Service   [9:30am - 11:30am]\n\n3rd Service   [11:30am - 1:30pm]\n\n4th Service   [1:30pm - 3:30pm]''',
+                        '''1st Service   [7:30am - 9:30am]\n\nSunday school   [9:30am - 10:15am]\n\n2nd Service   [10:15am - 12:15pm]\n\nTeen's service   [2:00pm - 3:00pm]\n\n\n\nTuesday Micro-church   [7:30pm - 8:30pm]\n\nFriday ignite service   [7:00pm - 8:30pm]''',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.openSans(
                             color: Colors.black87,

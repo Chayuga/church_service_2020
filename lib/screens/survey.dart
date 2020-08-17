@@ -1782,7 +1782,7 @@ class _SurveyQuizState extends State<SurveyQuiz> implements HttpCallBack {
         pr.hide();
         String message = response.message;
         showToast("$message");
-        Navigator.pushNamed(context, 'BookASeat');
+        Navigator.pushNamed(context, 'MyNavBar');
       } else if (response.error == true) {
         pr.hide();
         String message = response.message;

@@ -28,8 +28,8 @@ dependencies:
   http: ^0.12.2
   bottom_navy_bar: ^5.5.0
   font_awesome_flutter: ^8.8.1  #// For adding the Google Icon
-  google_fonts: ^1.1.0 
-  circle_bottom_navigation: ^1.0.4
+  google_fonts: ^1.1.0
+  flutter_multiselect: ^0.5.0
   flutter_spinkit: "^2.1.0"
   shared_preferences: ^0.5.8
   async: ^2.4.1

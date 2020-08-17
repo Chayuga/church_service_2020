@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_multiselect/flutter_multiselect.dart';
+import 'seats/seats_number.dart';
 
 enum Service { FIRST, SECOND, THIRD, FOURTH }
 
@@ -45,10 +47,10 @@ class Company {
   static List<Company> getCompanies() {
     return <Company>[
       Company(1, '1st Service'),
-      Company(2, '2nd Service'),
-      Company(3, '3rd service'),
-      Company(4, '4th Service'),
-      Company(5, '5th Service'),
+      Company(2, 'Sunday school'),
+      Company(3, '2nd service'),
+      Company(4, 'Teen\'s Service'),
+      Company(5, '3rd Service'),
     ];
   }
 }
@@ -261,11 +263,16 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                             children: <Widget>[
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(10, 10, 10, 5),
-                                child: Text(
-                                  "Please select your : \n\n 1. Next available service \n 2. Number of seats \n 3. And Submit \n\nTo book for the next service for the specified sunday service",
-                                  style: TextStyle(
-                                      color: Color(0xff616161), fontSize: 14.0),
+                                const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: Container(
+                                  height: 200,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/images/seats-structure.png"),
+                                        fit: BoxFit.cover,
+                                      )
+                                  )
+
                                 ),
                               ),
                             ],
@@ -274,61 +281,6 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                       ),
                     ),
                   ),
-//                  Container(
-//                    child: Card(
-//                      child: Padding(
-//                        padding: const EdgeInsets.all(8.0),
-//                        child: InkWell(
-//                          child: Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              Padding(
-//                                padding:
-//                                    const EdgeInsets.fromLTRB(10, 10, 10, 5),
-//                                child: Text(
-//                                  "Please Enter Your full Name",
-//                                  style: TextStyle(
-//                                      color: Color(0xff616161), fontSize: 16.0),
-//                                ),
-//                              ),
-//                              SizedBox(
-//                                height: 15,
-//                              ),
-//                              Padding(
-//                                padding:
-//                                    const EdgeInsets.fromLTRB(10, 5, 10, 10),
-//                                child: TextFormField(
-//                                  onSaved: (val) => username = val,
-//                                  keyboardType: TextInputType.text,
-//                                  controller: _username,
-//                                  decoration: new InputDecoration(
-//                                    labelText: "full name",
-//                                    fillColor: Colors.white,
-//                                    border: new OutlineInputBorder(
-//                                      borderRadius:
-//                                          new BorderRadius.circular(5.0),
-//                                      borderSide: new BorderSide(),
-//                                    ),
-//                                    //fillColor: Colors.green
-//                                  ),
-//                                  validator: (val) {
-//                                    if (val.length == 0) {
-//                                      return "Name cannot be empty";
-//                                    } else {
-//                                      return null;
-//                                    }
-//                                  },
-//                                  style: new TextStyle(
-//                                    fontFamily: "Poppins",
-//                                  ),
-//                                ),
-//                              ),
-//                            ],
-//                          ),
-//                        ),
-//                      ),
-//                    ),
-//                  ),
                   Container(
                     child: Card(
                       child: Padding(
@@ -360,7 +312,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                 },
                               ),
                               RadioListTile(
-                                title: const Text('2nd Service'),
+                                title: const Text('Sunday school'),
                                 value: Service.SECOND,
                                 groupValue: _serviceValue,
                                 onChanged: (Service value) {
@@ -372,7 +324,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                 },
                               ),
                               RadioListTile(
-                                title: const Text('3rd Service'),
+                                title: const Text('2nd Service'),
                                 value: Service.THIRD,
                                 groupValue: _serviceValue,
                                 onChanged: (Service value) {
@@ -384,7 +336,8 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                 },
                               ),
                               RadioListTile(
-                                title: const Text('4th Service'),
+                                title: const Text('Teen\'s service',
+                                ),
                                 value: Service.FOURTH,
                                 groupValue: _serviceValue,
                                 onChanged: (Service value) {
@@ -413,7 +366,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                 padding:
                                     const EdgeInsets.fromLTRB(10, 10, 10, 5),
                                 child: Text(
-                                  "Type Number of Seats",
+                                  "Select Seat Number(s)",
                                   style: TextStyle(
                                       color: Color(0xff616161), fontSize: 16.0),
                                 ),
@@ -422,32 +375,32 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                 height: 15,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10, 5, 10, 10),
-                                child: TextFormField(
-                                  onSaved: (val) => seat,
-                                  keyboardType: TextInputType.number,
-                                  controller: _seat,
-                                  decoration: new InputDecoration(
-                                    labelText: "seats",
-                                    fillColor: Colors.white,
-                                    border: new OutlineInputBorder(
-                                      borderRadius:
-                                          new BorderRadius.circular(5.0),
-                                      borderSide: new BorderSide(),
-                                    ),
-                                    //fillColor: Colors.green
-                                  ),
-                                  validator: (val) {
-                                    if (val.length == 0) {
-                                      return "Seats cannot be empty";
-                                    } else {
-                                      return null;
+                                padding: const EdgeInsets.all(8.0),
+                                child: new MultiSelect(
+                                  autovalidate: true,
+
+                                  initialValue: [' ', ' '],
+                                  titleText: '',
+                                  maxLength: 5, // optional
+                                  validator: (dynamic value) {
+                                    if (value == null) {
+                                      return 'Please select one or more seat(s)';
                                     }
+                                    return null;
                                   },
-                                  style: new TextStyle(
-                                    fontFamily: "Poppins",
-                                  ),
+                                  errorText: 'Please select one or more seat(s)',
+                                  dataSource: seatDropDown,
+                                  textField: 'seat_number',
+                                  valueField: 'ID',
+                                  filterable: true,
+                                  required: true,
+                                  onSaved: (value) {
+                                    print('The value is $value');
+                                  },
+                                  selectIcon: Icons.arrow_drop_down_circle,
+                                  saveButtonColor: Theme.of(context).primaryColor,
+                                  checkBoxColor: Theme.of(context).primaryColorDark,
+                                  cancelButtonColor: Theme.of(context).primaryColorLight,
                                 ),
                               ),
                             ],
@@ -462,7 +415,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Container(
-                      width: double.infinity,
+                      width: 0.5,
                       child: RaisedButton(
                         elevation: 1,
                         onPressed: () {
@@ -511,7 +464,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
         pr.hide();
         String message = response.message;
         showToast("$message");
-        // Navigator.pushNamed(context, 'BookASeat');
+         Navigator.pushNamed(context, 'BookedSuccess');
       } else if (response.error == true) {
         pr.hide();
         String message = response.message;
