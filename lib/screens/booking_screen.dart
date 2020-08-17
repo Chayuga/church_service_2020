@@ -264,15 +264,23 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                               Padding(
                                 padding:
                                 const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(
-                                  height: 200,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage("assets/images/seats-structure.png"),
-                                        fit: BoxFit.cover,
-                                      )
-                                  )
-
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Center(
+                                        child: Text(
+                                            "Deliverance Church Utawala\nSeats Structure", textAlign: TextAlign.center,
+                                          style: GoogleFonts.openSans(
+                                              color: Colors.black87, fontSize: 21, fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Image.asset("assets/images/seats-structure.png")
+                                  ],
                                 ),
                               ),
                             ],
@@ -356,6 +364,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                   ),
                   Container(
                     child: Card(
+
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
@@ -416,25 +425,28 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                     borderRadius: BorderRadius.circular(15),
                     child: Container(
                       width: 0.5,
-                      child: RaisedButton(
-                        elevation: 1,
-                        onPressed: () {
-                          setState(() {
-                            if (_seat.text.isEmpty) {
-                              _validate = true;
-                              showToast("Select number of seats");
-                            } else if (_seat.text.isNotEmpty) {
-                              pr.show();
-                              _validate = false;
-                              _submit();
-                            }
-                          });
-                        },
-                        color: logoGreen,
-                        child: Text(
-                          'Book now',
-                          style: GoogleFonts.openSans(
-                              color: Color(0xff18203d), fontSize: 16),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 60,top: 0, right: 60, bottom: 0),
+                        child: RaisedButton(
+                          elevation: 1,
+                          onPressed: () {
+                            setState(() {
+                              if (_seat.text.isEmpty) {
+                                _validate = true;
+                                showToast("Select number of seats");
+                              } else if (_seat.text.isNotEmpty) {
+                                pr.show();
+                                _validate = false;
+                                _submit();
+                              }
+                            });
+                          },
+                          color: logoGreen,
+                          child: Text(
+                            'Book now',
+                            style: GoogleFonts.openSans(
+                                color: Color(0xff18203d), fontSize: 16),
+                          ),
                         ),
                       ),
                     ),
