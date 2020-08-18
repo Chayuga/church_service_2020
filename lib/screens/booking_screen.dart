@@ -272,7 +272,7 @@ class BookASeatState extends State<BookASeat> implements HttpCallBack {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Center(
                                         child: Text(
-                                            "Deliverance Church Utawala\nSeats Structure", textAlign: TextAlign.center,
+                                            "Deliverance Church Utawala\nSeating Structure", textAlign: TextAlign.center,
                                           style: GoogleFonts.openSans(
                                               color: Colors.black87, fontSize: 21, fontWeight: FontWeight.w600),
                                         ),
